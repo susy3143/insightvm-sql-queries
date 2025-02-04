@@ -1,0 +1,9 @@
+-- Percentage of Compliance to Policy
+-- Copy the SQL query below
+SELECT
+	dp.title as "Policy Title",
+	fp.total_assets as "Assets Policy Scanned",
+	ROUND((100.0 * fp.policy_compliance), 2) as "% Compliance To Policy"
+FROM
+	fact_policy fp
+	JOIN dim_policy dp ON dp.policy_id = fp.policy_id
